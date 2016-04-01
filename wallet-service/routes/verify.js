@@ -21,7 +21,7 @@ router.post('/', function(req, res) {
         }
 
         // SQL Query > Select Data
-        var query = client.query("SELECT * FROM users WHERE email=$1)", [data.email]);
+        var query = client.query("SELECT * FROM users WHERE email=($1)", [data.email]);
 
         // Stream results back one row at a time
         query.on('row', function(row) {
